@@ -3,8 +3,11 @@ body {
 }
 
 h1 {
-    text-align: center;
     font-size: 3em;
+}
+
+.center {
+    text-align: center;
 }
 
 #counter {
@@ -74,10 +77,52 @@ h1 {
     width: 600px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    margin-top: 20px;
 }
 
 #task textarea {
     flex-grow: 1;
     font-family: inherit;
+}
+
+#video-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    position: relative;
+    width: 560px;
+    height: 315px;
+}
+
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+#video form {
+    text-align: center;
+}
+
+form input {
+    line-height: 2em;
+    font-size: 1em;
+}
+
+form button {
+    border-radius: 8px;
+    padding: 0.3em 1.2em;
+    font-size: 1.2em;
+    background: slateblue;
+    color: white;
+    border: slateblue;
+    transition: .2s;
+}
+
+form button:hover {
+    cursor: pointer;
+    background: darkslateblue;
 }
