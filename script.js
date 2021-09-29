@@ -17,7 +17,7 @@ let counting = "no";
 let mode = "focus";
 
 // Set the date we're counting down to
-var now = Date.now();
+var now = new Date().getTime();
 let countDownDate = now + distance;
 
 // toTitleCase definition for strings
@@ -30,14 +30,14 @@ String.prototype.toProperCase = function() {
 // timer start countdown function
 const countdown = function() {
     // set fixed countDownDate to work towards
-    now = Date.now();
+    now = new Date().getTime();
     countDownDate = now + distance;
 
     counting = "yes";
 
     // Update the count down every 1 second
     timer = setInterval(function() {
-        now = Date.now();
+        now = new Date().getTime();
         // Find the distance between now and the count down date
         distance = countDownDate - now;
         showValue(distance, counter);
