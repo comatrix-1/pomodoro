@@ -1,0 +1,83 @@
+body {
+    font-family: helvetica, arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+}
+
+#counter {
+    color: rgb(36, 36, 36);
+    background: mediumaquamarine;
+    margin: auto;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+}
+
+#counter p {
+    text-align: center;
+    line-height: 0%;
+    font-size: 8em;
+}
+
+#buttons-above {
+    display: flex;
+    justify-content: center;
+}
+
+#buttons-above div {
+    flex-grow: 1;
+    padding: 0.7em 2em;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.2s;
+}
+
+#buttons-below {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#buttons-below button {
+    border-radius: 8px;
+    padding: 0.7em 2em;
+    font-size: 1.5em;
+    background: slateblue;
+    color: white;
+    border: slateblue;
+    transition: .2s;
+}
+
+#buttons-below button:hover {
+    cursor: pointer;
+    background: darkslateblue;
+}
+
+.inactive {
+    background: rgb(56, 131, 106);
+    color: white;
+}
+
+.inactive:hover {
+    background: rgb(81, 184, 149);
+    cursor: pointer;
+}
+
+#task {
+    display: flex;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+#task textarea {
+    flex-grow: 1;
+    font-family: inherit;
+}

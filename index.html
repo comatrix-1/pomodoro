@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <script defer src="/script.js"></script>
+</head>
+
+<body id="viewsource" class="highlight" style="tab-size: 4">
+    <audio>
+      <source
+        src="Store_Door_Chime-Mike_Koenig-570742973.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <h1>Pomodoro timer</h1>
+
+    <div id="counter">
+        <div id="buttons-above">
+            <div id="focus-button">Focus time</div>
+            <div id="break-button" class="inactive">Break time</div>
+        </div>
+        <div>
+            <p></p>
+        </div>
+    </div>
+    <div id="buttons-below">
+        <button type="button" onclick="" id="pause-button">
+        Start countdown
+      </button>
+        <button type="button" onclick="" id="stop-button">Stop countdown</button>
+    </div>
+    <div id="task">
+        <textarea rows="4" placeholder="List your tasks here..."></textarea>
+    </div>
+</body>
+
+</html>
