@@ -7,7 +7,7 @@ let breakButton = document.querySelector("#break-button");
 var timer;
 
 let focusDistance = 1000 * 60 * 25;
-let breakDistance = 1000 * 3;
+let breakDistance = 1000 * 60 * 5;
 let currentFocusDistance = focusDistance;
 let currentBreakDistance = breakDistance;
 
@@ -15,6 +15,9 @@ var distance = focusDistance;
 let counting = "no";
 
 let mode = "focus";
+
+let vidForm = document.querySelector("form");
+let iframe = document.querySelector("iframe");
 
 // Set the date we're counting down to
 var now = Date.now();
@@ -114,6 +117,16 @@ breakButton.addEventListener("click", () => {
         focusButton.classList.add("inactive");
         breakButton.classList.remove("inactive");
     }
+});
+
+vidForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    let formValue = vidForm.querySelector("input").value;
+    iframe.setAttribute(
+        "src",
+        `https://www.youtube-nocookie.com/embed/${formValue}`
+    );
+    vidForm.querySelector("input").value = "";
 });
 
 // set intial timer
