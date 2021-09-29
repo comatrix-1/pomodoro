@@ -7,7 +7,7 @@ let breakButton = document.querySelector("#break-button");
 var timer;
 
 let focusDistance = 1000 * 60 * 25;
-let breakDistance = 1000 * 60 * 5;
+let breakDistance = 1000 * 3;
 let currentFocusDistance = focusDistance;
 let currentBreakDistance = breakDistance;
 
@@ -17,7 +17,7 @@ let counting = "no";
 let mode = "focus";
 
 // Set the date we're counting down to
-var now = new Date().getTime();
+var now = Date.now();
 let countDownDate = now + distance;
 
 // toTitleCase definition for strings
@@ -30,26 +30,27 @@ String.prototype.toProperCase = function() {
 // timer start countdown function
 const countdown = function() {
     // set fixed countDownDate to work towards
-    now = new Date().getTime();
+    now = Date.now();
     countDownDate = now + distance;
 
     counting = "yes";
 
     // Update the count down every 1 second
     timer = setInterval(function() {
-        now = new Date().getTime();
+        now = Date.now();
         // Find the distance between now and the count down date
         distance = countDownDate - now;
-        showValue(distance, counter);
-        showValue(distance, title);
 
         // If the count down is over, write some text
         if (distance <= 0) {
-            distance = 0;
             clearInterval(timer);
+            distance = 0;
             let audio = document.querySelector("audio");
             audio.play();
         }
+
+        showValue(distance, counter);
+        showValue(distance, title);
     }, 1000);
 };
 
@@ -95,24 +96,24 @@ stopButton.addEventListener("click", () => {
 focusButton.addEventListener("click", () => {
     if (mode == "break") {
         currentBreakDistance = distance;
+        mode = "focus";
+        showValue(`${mode} - Pomodoro`, title);
+        reset(currentFocusDistance);
+        breakButton.classList.add("inactive");
+        focusButton.classList.remove("inactive");
     }
-    mode = "focus";
-    showValue(`${mode} - Pomodoro`, title);
-    reset(currentFocusDistance);
-    breakButton.classList.add("inactive");
-    focusButton.classList.remove("inactive");
 });
 
 breakButton.addEventListener("click", () => {
     if (mode == "focus") {
         currentFocusDistance = distance;
-    }
-    mode = "break";
-    showValue(`${mode} - Pomodoro`, title);
-    reset(currentBreakDistance);
+        mode = "break";
+        showValue(`${mode} - Pomodoro`, title);
+        reset(currentBreakDistance);
 
-    focusButton.classList.add("inactive");
-    breakButton.classList.remove("inactive");
+        focusButton.classList.add("inactive");
+        breakButton.classList.remove("inactive");
+    }
 });
 
 // set intial timer
