@@ -44,16 +44,21 @@ const countdown = function() {
         // Find the distance between now and the count down date
         distance = countDownDate - now;
 
-        // If the count down is over, write some text
-        if (distance <= 0) {
-            clearInterval(timer);
-            distance = 0;
-            let audio = document.querySelector("audio");
-            audio.play();
-        }
-
         showValue(distance, counter);
         showValue(distance, title);
+
+        // If the count down is over, write some text
+        if (distance <= 0) {
+            distance = 0;
+            clearInterval(timer);
+            counting = "no";
+            let audio = document.querySelector("audio");
+            audio.play();
+            mode == "focus" ? (distance = focusDistance) : (distance = breakDistance);
+            pauseButton.innerText = "Start countdown";
+            showValue(distance, counter);
+            showValue("Time's up!", title);
+        }
     }, 1000);
 };
 
